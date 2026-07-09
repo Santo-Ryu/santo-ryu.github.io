@@ -1,0 +1,72 @@
+---
+const { page, baseUrl } = Astro.props;
+---
+
+<div
+    class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6"
+>
+
+    <div>
+        {
+            page.url.prev && (
+                <a
+                    href={page.url.prev}
+                    class="flex items-center gap-2 text-on-surface-variant hover:text-primary"
+                >
+                    <span class="material-symbols-outlined">
+                        chevron_left
+                    </span>
+
+                    PREV_PAGE
+                </a>
+            )
+        }
+    </div>
+
+    <div class="flex gap-2">
+
+        {
+            Array.from(
+                { length: page.lastPage },
+                (_, i) => (
+                    <a
+                        href={
+                            i === 0
+                                ? baseUrl
+                                : `${baseUrl}/${i + 1}`
+                        }
+                        class:list={[
+                            "w-10 h-10 flex items-center justify-center border transition-colors",
+                            page.currentPage === i + 1
+                                ? "border-primary bg-primary/10 text-primary"
+                                : "border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary"
+                        ]}
+                    >
+                        {(i + 1)
+                            .toString()
+                            .padStart(2, "0")}
+                    </a>
+                )
+            )
+        }
+
+    </div>
+
+    <div>
+        {
+            page.url.next && (
+                <a
+                    href={page.url.next}
+                    class="flex items-center gap-2 text-on-surface-variant hover:text-primary"
+                >
+                    NEXT_PAGE
+
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </a>
+            )
+        }
+    </div>
+
+</div>

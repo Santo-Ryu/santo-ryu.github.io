@@ -1,0 +1,32 @@
+<div class="flex border-b border-outline-variant mb-12 w-full">
+    <a
+        href="/blog/reports"
+        class:list={[
+            "px-8 py-4 font-code-sm text-code-sm transition-all uppercase tracking-tighter flex items-center gap-2",
+            Astro.url.pathname.startsWith("/blog/reports")
+                ? "tab-active text-primary"
+                : "text-on-surface-variant hover:text-primary",
+        ]}
+    >
+        <span class="material-symbols-outlined text-[18px]">
+            description
+        </span>
+        Reports
+    </a>
+
+    <a
+        href="/blog/journey"
+        class:list={[
+            "px-8 py-4 font-code-sm text-code-sm transition-all uppercase tracking-tighter flex items-center gap-2",
+            Astro.url.pathname.startsWith("/blog/journey")
+                ? "tab-active text-primary"
+                : "text-on-surface-variant hover:text-primary",
+        ]}
+    >
+        <span class="material-symbols-outlined text-[18px]">
+            route
+        </span>
+        Journey
+    </a>
+</div>
+

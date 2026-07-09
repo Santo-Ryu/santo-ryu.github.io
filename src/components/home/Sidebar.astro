@@ -1,0 +1,101 @@
+---
+const recentTags = [
+    "#Malware_Analysis",
+    "#SIEM",
+    "#ELK_Stack",
+    "#YARA",
+];
+---
+
+<aside class="space-y-8 pt-[45px] lg:col-span-4 lg:pr-4 lg:pt-[45px]">
+    <!-- Identity -->
+    <section class="space-y-4 border border-outline-variant bg-surface-container-low p-4">
+        <h4 class="border-b border-outline-variant pb-2 font-code-sm uppercase tracking-widest text-primary">
+            IDENTITY
+        </h4>
+
+        <p class="text-sm text-on-surface-variant">
+            Independent security researcher and forensic analyst.
+            Passionate about reverse engineering and proactive threat
+            hunting.
+        </p>
+
+        <div class="space-y-2 pt-4">
+            <span class="font-code-sm text-label-xs text-outline">
+                PGP_FINGERPRINT:
+            </span>
+
+            <div class="break-all border border-outline-variant bg-surface-container-lowest p-3 font-code-sm text-xs text-primary">
+                4D2F 9A8B 1C7E 03F6 8D1A
+                <br />
+                9C2E 5B4D 7F10 3A29 6D8C
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Tags -->
+    <section class="space-y-4">
+        <h4 class="border-b border-outline-variant pb-2 font-code-sm uppercase tracking-widest text-primary">
+            RECENT_TAGS
+        </h4>
+
+        <div class="flex flex-wrap gap-2">
+            {
+                recentTags.map((tag) => (
+                    <a
+                        href="#"
+                        class="border border-outline-variant bg-surface-container-high px-3 py-1.5 font-code-sm text-label-xs transition-all hover:border-primary"
+                    >
+                        {tag}
+                    </a>
+                ))
+            }
+
+            <a
+                href="#"
+                class="px-3 py-1.5 font-code-sm text-label-xs text-outline underline underline-offset-4 transition-all hover:text-primary"
+            >
+                Other...
+            </a>
+        </div>
+    </section>
+
+    <!-- Signal Intercept -->
+    <section class="group relative overflow-hidden border border-primary bg-primary-container/10 p-4">
+        <div class="absolute -right-4 -bottom-4 text-primary/5 transition-colors group-hover:text-primary/10">
+            <span class="material-symbols-outlined text-[120px]">
+                sensors
+            </span>
+        </div>
+
+        <div class="relative z-10 space-y-4">
+            <h4 class="flex items-center gap-2 font-headline-md text-lg text-primary">
+                <span class="material-symbols-outlined">sensors</span>
+                SIGNAL_INTERCEPT
+            </h4>
+
+            <p class="text-sm text-on-surface-variant">
+                Receive raw data streams and weekly technical forensics
+                writeups directly in your terminal.
+            </p>
+
+            <form
+                class="space-y-3"
+                onsubmit="event.preventDefault(); alert('Transmission Initialized...');"
+            >
+                <input
+                    type="email"
+                    placeholder="agent@secure.node"
+                    class="w-full border border-outline-variant bg-surface-container-lowest px-4 py-2 font-code-sm text-on-surface placeholder:text-outline focus:border-primary focus:ring-0"
+                />
+
+                <button
+                    type="submit"
+                    class="w-full bg-primary py-2 font-code-sm font-bold uppercase text-on-primary-container transition-all hover:brightness-110"
+                >
+                    INITIATE_UPLINK
+                </button>
+            </form>
+        </div>
+    </section>
+</aside>

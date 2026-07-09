@@ -1,0 +1,107 @@
+---
+import ReportCard from '@/components/common/ReportCard.astro';
+---
+
+<div class="lg:col-span-8 space-y-8 lg:pl-4">
+    <!-- Section Header -->
+    <div class="flex justify-between items-end border-b border-outline-variant pb-4">
+        <div class="flex items-center gap-2 text-primary">
+            <span class="material-symbols-outlined">terminal</span>
+            <h3 class="font-display-lg text-headline-md tracking-tight uppercase">
+                LATEST_REPORTS
+            </h3>
+        </div>
+
+        <span class="font-code-sm text-label-xs text-outline">
+            DISPLAY_3_REPORTS
+        </span>
+    </div>
+
+    <!-- Report List -->
+    <div class="space-y-8">
+        <!-- Report Card 1 -->
+        <div class="glass-panel p-4 flex flex-col md:flex-row gap-6 hover:border-primary transition-all group">
+            <div class="w-full md:w-48 h-32 overflow-hidden border border-outline-variant">
+                <img alt="Report Thumbnail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqWYqOwgk19RAk6CPTjygHGISUZqiQ8CsbAyB_YpyRDl8e4vwxIbPO7TtC6XI9zSh3CN-vXEH4BGSOghqQW5GdFlgzghHtwsdpWzu-zqy7-hZtsAeuQz50wRwXsBkto6s-UY4eXgtTqfwxtU7msx-0ZDBlf4KNXzNTRnWeirxwYSzTqXHsrp9EOzw0E9GmMGGslCGvkdeck9Y11ThmvHScjSeDn2eXlh2fxyw6-1OR8Eud15oHsa32AsofrCHCpD59VkWJyolkqT8">
+            </div>
+            <div class="flex-1 space-y-2">
+                <div class="flex justify-between items-start">
+                    <div class="flex flex-wrap gap-2"><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#file-system-forensics</span><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#NTFS</span><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#Artifacts</span></div>
+                    <span class="text-outline font-code-sm text-xs">2024.05.12 // 14:30 UTC</span>
+                </div>
+                <h4 class="text-on-surface font-headline-md text-lg group-hover:text-primary transition-colors">MFT Anomaly Detection in NTFS Vol_01</h4>
+                <p class="text-on-surface-variant text-sm line-clamp-2">An in-depth investigation into non-standard resident attribute artifacts found within the Master File Table of a compromised enterprise...</p>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-primary font-code-sm text-xs flex items-center gap-1"><span class="material-symbols-outlined text-xs">radar</span> Lvl: ADVANCED</span>
+            <a
+                class="text-primary font-code-sm text-xs flex items-center gap-1"
+                href="/blog_report"
+            >
+                <span class="hover:underline">READ</span>
+                <span class="material-symbols-outlined text-xs">arrow_right_alt</span>
+            </a>                </div>
+            </div>
+        </div>
+
+        <!-- Report Card 2 -->
+        <div class="glass-panel p-4 flex flex-col md:flex-row gap-6 hover:border-primary transition-all group">
+            <div class="w-full md:w-48 h-32 overflow-hidden border border-outline-variant">
+                <img alt="Report Thumbnail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqWYqOwgk19RAk6CPTjygHGISUZqiQ8CsbAyB_YpyRDl8e4vwxIbPO7TtC6XI9zSh3CN-vXEH4BGSOghqQW5GdFlgzghHtwsdpWzu-zqy7-hZtsAeuQz50wRwXsBkto6s-UY4eXgtTqfwxtU7msx-0ZDBlf4KNXzNTRnWeirxwYSzTqXHsrp9EOzw0E9GmMGGslCGvkdeck9Y11ThmvHScjSeDn2eXlh2fxyw6-1OR8Eud15oHsa32AsofrCHCpD59VkWJyolkqT8">
+            </div>
+            <div class="flex-1 space-y-2">
+                <div class="flex justify-between items-start">
+                    <div class="flex flex-wrap gap-2"><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#malware-analysis</span><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#EDR_Bypass</span></div>
+                    <span class="text-outline font-code-sm text-xs">2024.04.28 // 09:15 UTC</span>
+                </div>
+                <h4 class="text-on-surface font-headline-md text-lg group-hover:text-primary transition-colors">Deconstructing the 'Void-Caller' Trojan</h4>
+                <p class="text-on-surface-variant text-sm line-clamp-2">Static and dynamic analysis of a new stealth loader using indirect syscalls to bypass modern EDR solutions on Windows 11 23H2.</p>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-primary font-code-sm text-xs flex items-center gap-1"><span class="material-symbols-outlined text-xs">radar</span> Lvl: INTERMEDIATE</span>
+            <a
+                class="text-primary font-code-sm text-xs flex items-center gap-1"
+                href="/blog_report"
+            >
+                <span class="hover:underline">READ</span>
+                <span class="material-symbols-outlined text-xs">arrow_right_alt</span>
+            </a>                </div>
+            </div>
+        </div>
+
+        <!-- Report Card 3 -->
+        <div class="glass-panel p-4 flex flex-col md:flex-row gap-6 hover:border-primary transition-all group">
+            <div class="w-full md:w-48 h-32 overflow-hidden border border-outline-variant">
+                <img alt="Report Thumbnail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqWYqOwgk19RAk6CPTjygHGISUZqiQ8CsbAyB_YpyRDl8e4vwxIbPO7TtC6XI9zSh3CN-vXEH4BGSOghqQW5GdFlgzghHtwsdpWzu-zqy7-hZtsAeuQz50wRwXsBkto6s-UY4eXgtTqfwxtU7msx-0ZDBlf4KNXzNTRnWeirxwYSzTqXHsrp9EOzw0E9GmMGGslCGvkdeck9Y11ThmvHScjSeDn2eXlh2fxyw6-1OR8Eud15oHsa32AsofrCHCpD59VkWJyolkqT8">
+            </div>
+            <div class="flex-1 space-y-2">
+                <div class="flex justify-between items-start">
+                    <div class="flex flex-wrap gap-2"><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#osint</span><span class="text-primary font-code-sm text-xs bg-primary/10 px-2 py-0.5 border border-primary/20">#Python</span></div>
+                    <span class="text-outline font-code-sm text-xs">2024.04.15 // 22:45 UTC</span>
+                </div>
+                <h4 class="text-on-surface font-headline-md text-lg group-hover:text-primary transition-colors">Automating Social Signal Intelligence</h4>
+                <p class="text-on-surface-variant text-sm line-clamp-2">Developing custom Python scrapers for mapping influence operations across decentralized social networks using Graph theory.</p>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-primary font-code-sm text-xs flex items-center gap-1"><span class="material-symbols-outlined text-xs">radar</span> Lvl: RESEARCH</span>
+            <a
+                class="text-primary font-code-sm text-xs flex items-center gap-1"
+                href="/blog_report"
+            >
+                <span class="hover:underline">READ</span>
+                <span class="material-symbols-outlined text-xs">arrow_right_alt</span>
+            </a>                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View All -->
+    <div class="flex justify-center pt-12">
+        <a
+            href="#"
+            class="group flex items-center gap-3 border border-primary bg-surface-container-high px-10 py-3 font-code-sm text-primary transition-all duration-300 hover:bg-primary hover:text-on-primary-container"
+        >
+            <span class="material-symbols-outlined text-sm group-hover:animate-pulse">
+                terminal
+            </span>
+            VIEW ALL REPORTS
+        </a>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@import "./theme.css";
+@import "./utilities.css";
+
+@layer base {
+  body {
+    background: var(--color-background);
+    color: var(--color-on-background);
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-on-primary-container);
+  }
+}
+
+@keyframes scan {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 100%;
+  }
+}

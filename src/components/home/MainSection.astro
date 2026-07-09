@@ -1,0 +1,26 @@
+---
+import ProfileCard from '@/components/home/ProfileCard.astro';
+import HeroContent from '@/components/home/HeroContent.astro';
+import LatestReports from '@/components/home/LatestReports.astro';
+import Sidebar from '@/components/home/Sidebar.astro';
+---
+
+<section class="relative z-10 max-w-container-max mx-auto px-margin-mobile py-8 md:px-margin-desktop md:py-16">
+    <!-- Hero Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-12 items-center">
+        <!-- Left Profile Card -->
+        <ProfileCard />
+
+        <!-- Hero Copy & Content -->
+        <HeroContent />
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-12 mt-20 items-start">
+        <!-- Main Content -->
+        <LatestReports />
+
+        <!-- Sidebar -->
+        <Sidebar />
+    </div>
+</section>

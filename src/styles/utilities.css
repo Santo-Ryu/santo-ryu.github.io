@@ -1,0 +1,106 @@
+@layer utilities {
+    .forensic-bar {
+        border-left: 4px solid var(--color-primary);
+        padding-left: 1rem;
+    }
+
+    .terminal-glow {
+        text-shadow: 0 0 10px rgb(111 221 120 / 40%);
+    }
+
+    .glass-panel {
+        background: rgb(16 20 26 / 80%);
+        backdrop-filter: blur(8px);
+        border: 1px solid #30363d;
+    }
+
+    .pixel-grid {
+        background-image: radial-gradient(#30363d 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .scanline {
+        position: absolute;
+        inset-inline: 0;
+        top: 0;
+        height: 2px;
+        background: rgb(111 221 120 / 10%);
+        pointer-events: none;
+        z-index: 50;
+        animation: scan 6s linear infinite;
+    }
+
+    .animate-spin-slow {
+        animation: spin 12s linear infinite;
+    }
+    
+    .tab-active {
+      color: #6fdd78;
+      border-bottom: 2px solid #6fdd78;
+    }
+
+    .technical-card {
+      background: #181c22;
+      border: 1px solid #30363d;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .technical-card:hover {
+      border-color: #6fdd78;
+      box-shadow: 0 0 15px rgba(111, 221, 120, 0.1);
+    }
+    
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    
+    .markdown-content h2 {
+        border-bottom: 2px solid #3e4a3d;
+        padding-bottom: 8px;
+        margin-top: 48px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+    }
+    .markdown-content h2::before {
+        content: "";
+        width: 8px;
+        height: 24px;
+        background-color: #6fdd78;
+        margin-right: 12px;
+    }
+    .markdown-content p {
+        margin-bottom: 24px;
+        line-height: 1.8;
+    }
+    .markdown-content ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .markdown-content ul li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 12px;
+    }
+    .markdown-content ul li::before {
+        content: ">_";
+        position: absolute;
+        left: 0;
+        color: #6fdd78;
+        font-family: 'JetBrains Mono';
+        font-weight: 700;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #10141a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #3e4a3d;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #6fdd78;
+    }
+}

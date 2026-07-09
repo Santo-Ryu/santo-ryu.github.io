@@ -1,15 +1,20 @@
+---
+const github = import.meta.env.PUBLIC_GITHUB
+---
+
 <div class="lg:col-span-8 lg:pl-4">
     <div class="space-y-6">
         <h1 class="font-display-lg text-headline-md md:text-display-lg text-on-surface leading-tight">
-            Digital evidence <span class="italic text-primary">never lies.</span>
-            <br />
-            It just needs the right questions.
+            Welcome to <span class="italic text-primary"> my labs</span>
+            <br />    
+            Documenting the journey, one writeup at a time.
         </h1>
 
         <p class="max-w-2xl text-body-md leading-relaxed text-on-surface-variant">
-            A focused repository for deep-dive investigations, Blue Team
-            workflows, and security research into the mechanics of compromise.
-            Translating complex logs into actionable intelligence.
+            This is where I share writeups, technical notes, and practical workflows across Blue Team operations, SOC, DFIR, incident response, malware analysis, and everything I learn along the way.
+            You can also find me on
+            <a class="cursor-pointer text-primary" href={github} target="_blank"> GitHub</a>
+            , where I share tools, lab environments, scripts, and code from my projects.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-2">

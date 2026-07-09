@@ -1,57 +1,77 @@
-<aside class="hidden lg:block lg:col-span-4 lg:pr-4">
-    <div class="glass-panel relative overflow-hidden border-l-4 border-primary p-6">
-        <div class="scanline"></div>
+---
+import { Icon } from "astro-icon/components";
+import avatar from "@/assets/avt.jpg";
 
-        <div class="relative z-10">
-            <div class="mb-4 flex justify-center">
-                <div class="group relative h-32 w-32">
-                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-primary"></div>
+const socials = [
+  {
+    href: import.meta.env.PUBLIC_GITHUB,
+    icon: "simple-icons:github",
+    label: "GitHub",
+  },
+  {
+    href: import.meta.env.PUBLIC_TWITTER,
+    icon: "simple-icons:x",
+    label: "Twitter",
+  },
+  {
+    href: `mailto:${import.meta.env.PUBLIC_EMAIL}`,
+    icon: "simple-icons:gmail",
+    label: "Email",
+  },
+  {
+    href: import.meta.env.PUBLIC_RSS,
+    icon: "simple-icons:rss",
+    label: "RSS",
+  },
+];
+---
 
-                    <img
-                        src="src/assets/avt.jpg"
-                        alt="A stylized circular avatar for a cybersecurity expert"
-                        class="h-full w-full rounded-full object-cover p-2"
-                    />
-                </div>
-            </div>
 
-            <div class="space-y-3 text-center">
-                <h2 class="font-display-lg text-headline-md tracking-tight uppercase text-on-surface">
-                    SANTO RYU
-                </h2>
+<aside class="hidden lg:col-span-4 lg:block lg:pr-4">
+  <div class="glass-panel relative overflow-hidden border-l-4 border-primary p-6">
+    <div class="scanline"></div>
 
-                <div class="flex items-center justify-center gap-2 font-code-sm text-label-xs text-primary">
-                    <span class="h-2 w-2 animate-pulse rounded-full bg-primary"></span>
-                    &gt;_ STATUS: ACTIVE
-                </div>
+    <div class="relative z-10">
+      <div class="mb-4 flex justify-center">
+        <div class="group relative h-32 w-32">
+          <div class="absolute inset-0 rounded-full border-2 border-dashed border-primary"></div>
 
-                <p class="font-code-sm text-xs uppercase tracking-widest text-on-surface-variant">
-                    SECURITY • BLUE TEAM • DFIR • RE • OSINT
-                </p>
-
-                <div class="flex justify-center gap-4 pt-4">
-                    <a
-                        href="#"
-                        class="text-on-surface-variant transition-colors hover:text-primary"
-                    >
-                        <span class="material-symbols-outlined">terminal</span>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="text-on-surface-variant transition-colors hover:text-primary"
-                    >
-                        <span class="material-symbols-outlined">share</span>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="text-on-surface-variant transition-colors hover:text-primary"
-                    >
-                        <span class="material-symbols-outlined">mail</span>
-                    </a>
-                </div>
-            </div>
+          <img
+            src={avatar.src}
+            alt="Santo Ryu Avatar"
+            class="h-full w-full rounded-full object-cover p-2"
+          />
         </div>
+      </div>
+
+      <div class="space-y-3 text-center">
+        <h2 class="font-display-lg text-headline-md tracking-tight uppercase text-on-surface">
+          SANTO RYU
+        </h2>
+
+        <div class="flex items-center justify-center gap-2 font-code-sm text-label-xs text-primary">
+          <span class="h-2 w-2 animate-pulse rounded-full bg-primary"></span>
+          &gt;_ STATUS: ACTIVE
+        </div>
+
+        <p class="font-code-sm text-xs uppercase tracking-widest text-on-surface-variant">
+          SECURITY • BLUE TEAM • DFIR • RE • FOR • OSINT
+        </p>
+
+        <div class="flex justify-center gap-5 pt-4">
+          {socials.map(({ href, icon, label }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              class="text-on-surface-variant transition-colors hover:text-primary"
+            >
+              <Icon name={icon} class="h-5 w-5" />
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
+  </div>
 </aside>

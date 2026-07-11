@@ -1,0 +1,60 @@
+---
+import ReportCard from "@/components/blog/ReportCard.astro";
+import Pagination from "@/components/blog/Pagination.astro";
+import BlogSection from "@/components/blog/BlogSection.astro"
+import Layout from "@/layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+const POSTS_PER_PAGE = 3;
+
+export async function getStaticPaths() {
+    const POSTS_PER_PAGE = 3;
+    const reports = await getCollection("journey");
+
+    const totalPages = Math.ceil(reports.length / POSTS_PER_PAGE);
+
+    return Array.from({ length: totalPages - 1 }, (_, index) => ({
+        params: {
+            page: String(index + 2),
+        },
+    }));
+}
+
+const reports = await getCollection("reports");
+
+reports.sort(
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() -
+        new Date(a.data.pubDate).getTime()
+);
+
+const currentPage = Number(Astro.params.page);
+
+const start = (currentPage - 1) * POSTS_PER_PAGE;
+const end = start + POSTS_PER_PAGE;
+
+const pageReports = reports.slice(start, end);
+
+const totalPages = Math.ceil(reports.length / POSTS_PER_PAGE);
+---
+
+<Layout>
+    <BlogSection>
+        <div class="block w-full" id="content-reports">
+            <div class="grid grid-cols-1 gap-8 w-full" id="reports-list">
+                {
+                    pageReports.map((report) => (
+                        <ReportCard entry={report} />
+                    ))
+                }
+            </div>
+        </div>
+
+        <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            baseUrl="/blog/reports"
+        />
+    </BlogSection>
+</Layout>

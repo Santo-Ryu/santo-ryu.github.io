@@ -1,0 +1,41 @@
+---
+import BlogSection from "@/components/blog/BlogSection.astro";
+import Pagination from "@/components/blog/Pagination.astro";
+import ReportCard from "@/components/blog/ReportCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const POSTS_PER_PAGE = 3;
+
+const reports = await getCollection("reports");
+
+console.log(reports.length);
+
+reports.sort(
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() -
+        new Date(a.data.pubDate).getTime()
+);
+
+const totalPages = Math.ceil(reports.length / POSTS_PER_PAGE);
+
+const pageReports = reports.slice(0, POSTS_PER_PAGE);
+---
+
+<Layout>
+    <BlogSection>
+        <div class="block w-full" id="content-reports">
+            <div class="grid grid-cols-1 gap-8 w-full">
+                {pageReports.map(report => (
+                    <ReportCard entry={report} />
+                ))}
+            </div>
+        </div>  
+
+        <Pagination
+            currentPage={1}
+            totalPages={totalPages}
+            baseUrl="/blog/reports"
+        />
+    </BlogSection>
+</Layout>

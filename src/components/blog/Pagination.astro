@@ -1,72 +1,125 @@
 ---
-const { page, baseUrl } = Astro.props;
+interface Props {
+    currentPage: number;
+    totalPages: number;
+    baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+const getPageUrl = (page: number) =>
+    page === 1 ? baseUrl : `${baseUrl}/page/${page}`;
+
+const visiblePages: (number | "...")[] = [];
+
+for (let page = 1; page <= totalPages; page++) {
+    const isFirst = page === 1;
+    const isLast = page === totalPages;
+
+    const isNearCurrent =
+        page >= currentPage - 2 &&
+        page <= currentPage + 2;
+
+    if (isFirst || isLast || isNearCurrent) {
+        visiblePages.push(page);
+    } else {
+        const last = visiblePages.at(-1);
+
+        if (last !== "...") {
+            visiblePages.push("...");
+        }
+    }
+}
 ---
 
 <div
-    class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6"
+    class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6 w-full"
 >
+    <!-- Previous -->
+    {
+        currentPage > 1 ? (
+            <a
+                href={getPageUrl(currentPage - 1)}
+                class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors"
+            >
+                <span class="material-symbols-outlined">
+                    chevron_left
+                </span>
 
-    <div>
+                PREV_PAGE
+            </a>
+        ) : (
+            <span
+                class="flex items-center gap-2 text-on-surface-variant opacity-40 cursor-not-allowed"
+            >
+                <span class="material-symbols-outlined">
+                    chevron_left
+                </span>
+
+                PREV_PAGE
+            </span>
+        )
+    }
+
+    <!-- Page Numbers -->
+    <div class="flex items-center gap-2 flex-wrap justify-center">
         {
-            page.url.prev && (
-                <a
-                    href={page.url.prev}
-                    class="flex items-center gap-2 text-on-surface-variant hover:text-primary"
-                >
-                    <span class="material-symbols-outlined">
-                        chevron_left
-                    </span>
+            visiblePages.map((item) => {
+                if (item === "...") {
+                    return (
+                        <span
+                            class="w-10 h-10 flex items-center justify-center text-on-surface-variant"
+                        >
+                            ...
+                        </span>
+                    );
+                }
 
-                    PREV_PAGE
-                </a>
-            )
-        }
-    </div>
+                if (item === currentPage) {
+                    return (
+                        <span
+                            class="w-10 h-10 flex items-center justify-center rounded border border-primary bg-primary/10 text-primary font-medium"
+                        >
+                            {String(item).padStart(2, "0")}
+                        </span>
+                    );
+                }
 
-    <div class="flex gap-2">
-
-        {
-            Array.from(
-                { length: page.lastPage },
-                (_, i) => (
+                return (
                     <a
-                        href={
-                            i === 0
-                                ? baseUrl
-                                : `${baseUrl}/${i + 1}`
-                        }
-                        class:list={[
-                            "w-10 h-10 flex items-center justify-center border transition-colors",
-                            page.currentPage === i + 1
-                                ? "border-primary bg-primary/10 text-primary"
-                                : "border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary"
-                        ]}
+                        href={getPageUrl(item)}
+                        class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors"
                     >
-                        {(i + 1)
-                            .toString()
-                            .padStart(2, "0")}
+                        {String(item).padStart(2, "0")}
                     </a>
-                )
-            )
-        }
-
-    </div>
-
-    <div>
-        {
-            page.url.next && (
-                <a
-                    href={page.url.next}
-                    class="flex items-center gap-2 text-on-surface-variant hover:text-primary"
-                >
-                    NEXT_PAGE
-
-                    <span class="material-symbols-outlined">
-                        chevron_right
-                    </span>
-                </a>
-            )
+                );
+            })
         }
     </div>
 
+    <!-- Next -->
+    {
+        currentPage < totalPages ? (
+            <a
+                href={getPageUrl(currentPage + 1)}
+                class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors"
+            >
+                NEXT_PAGE
+
+                <span class="material-symbols-outlined">
+                    chevron_right
+                </span>
+            </a>
+        ) : (
+            <span
+                class="flex items-center gap-2 text-on-surface-variant opacity-40 cursor-not-allowed"
+            >
+                NEXT_PAGE
+
+                <span class="material-symbols-outlined">
+                    chevron_right
+                </span>
+            </span>
+        )
+    }
 </div>
